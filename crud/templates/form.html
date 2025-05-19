@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+  <h1>{{if .ID}}Edit{{else}}New{{end}} Product</h1>
+  <form method="POST" action="{{if .ID}}/update{{else}}/create{{end}}">
+    <input type="hidden" name="id" value="{{.ID}}">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" name="name" class="form-control" value="{{.Name}}" required>
+    </div>
+    <div class="mb-3">
+      <label>Description</label>
+      <input type="text" name="description" class="form-control" value="{{.Description}}" required>
+    </div>
+    <div class="mb-3">
+      <label>Price</label>
+      <input type="number" name="price" class="form-control" step="0.01" value="{{.Price}}" required>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a class="btn btn-secondary" href="/">Cancel</a>
+  </form>
+</body>
+</html>
